@@ -27,7 +27,7 @@ const Wiki = () => {
       ))}
       <Divider>
         <Link to="/">
-          <ArrowLeftOutlined /> Powrót
+          <ArrowLeftOutlined /> Powrót do strony głównej
         </Link>{" "}
         {/* Dodane */}
       </Divider>
