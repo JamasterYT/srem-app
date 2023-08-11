@@ -2,7 +2,7 @@ import React from "react";
 import { Card } from "antd";
 import { Link } from "react-router-dom";
 import { getAgeString, calculateAge } from "../utils";
-
+import people from "../people.json";
 const PersonCard = ({ person }) => {
   let description;
 
