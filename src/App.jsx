@@ -22,7 +22,7 @@ const App = () => {
           }}
         >
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/srem-app" element={<HomePage />} />
             <Route path="/wiki" element={<Wiki />} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/wiki/:personId" element={<PersonDetail />} />
