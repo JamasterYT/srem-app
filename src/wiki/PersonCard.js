@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "antd";
 import { Link } from "react-router-dom";
 import { getAgeString, calculateAge } from "../utils";
 import people from "../people.json";
+
 const PersonCard = ({ person }) => {
+  const [imageLoaded, setImageLoaded] = useState(true);
+
   let description;
 
   if (person.Czy_nienarodzone) {
@@ -24,14 +27,21 @@ const PersonCard = ({ person }) => {
         hoverable
         style={{ width: 240, margin: "10px" }}
         cover={
-          <img
-            alt={fullName}
-            src={`../photos/${person.Zdjecie}`}
-            onError={(e) => {
-              e.target.onerror = null;
-              e.target.src = "../photos/blank.jpg";
-            }}
-          />
+          imageLoaded && (
+            <img
+              alt={fullName}
+              src={`${process.env.PUBLIC_URL}/photos/${person.Zdjecie}`}
+              // src={`../photos/${person.Zdjecie}`}
+              onLoad={() => setImageLoaded(true)}
+              // onError={(e) => {
+              //   e.target.onerror = null;
+              //   e.target.src = "../photos/blank.jpg";
+              // }}
+              onError={() => {
+                setImageLoaded(false);
+              }}
+            />
+          )
         }
         // data-aos="fade-up"
         data-aos="flip-down"
