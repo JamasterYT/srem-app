@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/srem-app/static/css/main.fc0706bd.css",
-    "main.js": "/srem-app/static/js/main.8ce52cce.js",
+    "main.js": "/srem-app/static/js/main.79a9e7d8.js",
     "index.html": "/srem-app/index.html",
     "main.fc0706bd.css.map": "/srem-app/static/css/main.fc0706bd.css.map",
-    "main.8ce52cce.js.map": "/srem-app/static/js/main.8ce52cce.js.map"
+    "main.79a9e7d8.js.map": "/srem-app/static/js/main.79a9e7d8.js.map"
   },
   "entrypoints": [
     "static/css/main.fc0706bd.css",
-    "static/js/main.8ce52cce.js"
+    "static/js/main.79a9e7d8.js"
   ]
 }
