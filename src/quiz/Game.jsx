@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button, message, Typography } from "antd";
+import { Card, Button, message, Typography, Row, Col } from "antd"; // Import Row and Col
 import people from "../people.json";
 
 const { Title } = Typography;
@@ -55,18 +55,38 @@ const Game = () => {
   };
 
   return (
-    <div>
+    <div style={{ padding: '0 16px 16px 16px' }}>
+
       {currentPerson && (
         <div>
-          <Title level={3}>Pytanie {questionNumber}</Title> {/* Display the question number */}
-          <img src={`${process.env.PUBLIC_URL}/photos/${currentPerson.Zdjecie}`} alt={currentPerson.Imie} />
-          <div>
+          <Title level={3}>Pytanie {questionNumber}</Title>
+          <Row justify="center" style={{ marginBottom: '16px' }}>
+          <Col xs={24} sm={16} md={12} lg={8}>
+              <img 
+            src={`${process.env.PUBLIC_URL}/photos/${currentPerson.Zdjecie}`} 
+            alt={currentPerson.Imie} 
+            style={{ 
+            width: '100%', 
+            marginBottom: '16px', 
+            borderRadius: '16px'  // This gives the image rounded corners
+            }}
+          />
+            </Col>
+
+          </Row>
+          <Row gutter={[16, 16]} justify="center">
             {options.map((person, index) => (
-              <Button  data-aos="flip-down" key={index} onClick={() => handleOptionClick(person)}>
-                {person.Imie}
-              </Button>
+              <Col xs={12} sm={12} md={6} key={index}> {/* Adjusted the xs prop value to 12 */}
+                <Button 
+                  
+                  style={{ width: '100%', height: '100px' }} // Adjusted height to make it square-ish
+                  onClick={() => handleOptionClick(person)}
+                >
+                  {person.Imie}
+                </Button>
+              </Col>
             ))}
-          </div>
+          </Row>
         </div>
       )}
     </div>

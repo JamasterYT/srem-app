@@ -26,7 +26,7 @@ const Wiki = () => {
         />
       ))}
       <Divider>
-        <Link to="/srem-app">
+        <Link to="/">
           <ArrowLeftOutlined /> Powrót do strony głównej
         </Link>{" "}
       </Divider>
