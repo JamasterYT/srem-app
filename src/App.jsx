@@ -1,9 +1,11 @@
+//src/App.jsx
 import React from "react";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { Layout } from "antd";
 import Quiz from "./quiz/Quiz";
 import Game from "./quiz/Game"; // Make sure to import the Game component
 import AgeGame from "./quiz/AgeGame"; // Make sure to import the Game component
+import TrueFalse from "./quiz/TrueFalse"; // Make sure to import the Game component
 import Wiki from "./wiki/Wiki";
 import PersonDetail from "./wiki/PersonDetail";
 import HomePage from "./HomePage";
@@ -32,6 +34,7 @@ const App = () => {
             <Route path="/play-age-game" element={<AgeGame />} />{" "}
             {/* Add this route for the Game component */}
             <Route path="/wiki/:personId" element={<PersonDetail />} />
+            <Route path="/play-true-false-game" element={<TrueFalse />} />
           </Routes>
         </Content>
         {/* <Footer style={{ textAlign: "center" }}>© Jan Mańczak</Footer> */}

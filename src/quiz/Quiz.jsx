@@ -28,9 +28,11 @@ const Quiz = () => {
   const [loggedUser, setLoggedUser] = useState(null);
   const [userLevel, setUserLevel] = useState("Nowicjusz");
 
+  const tfHighScore = localStorage.getItem("tfHighScore") || 0;
   const ageHighScore = localStorage.getItem("ageHighScore") || 0;
   const nameHighScore = localStorage.getItem("nameHighScore") || 0;
-  const totalScore = parseInt(nameHighScore) + parseInt(ageHighScore);
+  const totalScore =
+    parseInt(tfHighScore) + parseInt(nameHighScore) + parseInt(ageHighScore);
 
   const determineUserLevel = (score) => {
     if (score <= 50) return "Nowicjusz";
@@ -65,6 +67,7 @@ const Quiz = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("ageHighScore");
+    localStorage.removeItem("tfHighScore");
     localStorage.removeItem("nameHighScore");
     localStorage.setItem("userLevel", "Nowicjusz");
     setUserLevel("Nowicjusz");
@@ -130,6 +133,15 @@ const Quiz = () => {
             {ageHighScore > 0 && (
               <Badge count={ageHighScore} style={{ marginLeft: "10px" }} />
             )}
+          </Button>
+        </Link>
+        <Link to="/play-true-false-game">
+          <Button type="primary" size="large" icon={<TrophyOutlined />}>
+            Prawda czy fałsz
+            <Badge
+              count={localStorage.getItem("tfHighScore") || 0}
+              style={{ marginLeft: "10px" }}
+            />
           </Button>
         </Link>
 
