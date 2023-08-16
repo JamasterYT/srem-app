@@ -53,9 +53,9 @@ const Game = () => {
       const newScore = score + 1;
       setScore(newScore);
       setQuestionNumber(questionNumber + 1);
-      const highScore = localStorage.getItem("highScore") || 0;
-      if (newScore > highScore) {
-        localStorage.setItem("highScore", newScore);
+      const nameHighScore = localStorage.getItem("nameHighScore") || 0;
+      if (newScore > nameHighScore) {
+        localStorage.setItem("nameHighScore", newScore);
       }
       nextQuestion();
     } else {

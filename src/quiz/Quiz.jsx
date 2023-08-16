@@ -29,8 +29,8 @@ const Quiz = () => {
   const [userLevel, setUserLevel] = useState("Nowicjusz");
 
   const ageHighScore = localStorage.getItem("ageHighScore") || 0;
-  const highScore = localStorage.getItem("highScore") || 0;
-  const totalScore = parseInt(highScore) + parseInt(ageHighScore);
+  const nameHighScore = localStorage.getItem("nameHighScore") || 0;
+  const totalScore = parseInt(nameHighScore) + parseInt(ageHighScore);
 
   const determineUserLevel = (score) => {
     if (score <= 50) return "Nowicjusz";
@@ -65,7 +65,7 @@ const Quiz = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("ageHighScore");
-    localStorage.removeItem("highScore");
+    localStorage.removeItem("nameHighScore");
     localStorage.setItem("userLevel", "Nowicjusz");
     setUserLevel("Nowicjusz");
     setLoggedUser(null);
@@ -120,7 +120,7 @@ const Quiz = () => {
         <Link to="/play-game">
           <Button type="primary" size="large" icon={<TrophyOutlined />}>
             Zgadnij kto to{" "}
-            <Badge count={highScore} style={{ marginLeft: "10px" }} />
+            <Badge count={nameHighScore} style={{ marginLeft: "10px" }} />
           </Button>
         </Link>
 
