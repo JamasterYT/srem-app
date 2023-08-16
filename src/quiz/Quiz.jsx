@@ -12,10 +12,14 @@ import {
   Modal,
 } from "antd";
 import { Link } from "react-router-dom";
+import { StarOutlined, CrownOutlined } from "@ant-design/icons";
+
 import {
   ArrowLeftOutlined,
   TrophyOutlined,
   LogoutOutlined,
+  ClockCircleOutlined,
+  QuestionCircleOutlined,
 } from "@ant-design/icons";
 import people from "../people.json";
 import { Badge } from "antd";
@@ -102,55 +106,66 @@ const Quiz = () => {
             </Col>
           </>
         ) : (
-          <Col>
-            <Select
-              showSearch
-              style={{ width: 200 }}
-              placeholder="Wybierz osobę"
-              optionFilterProp="children"
-              onChange={handleUserChange}
-            >
-              {eligiblePeople.map((person) => (
-                <Option key={person.Id} value={person.Id}>
-                  {`${person.Imie} ${person.Nazwisko}`}
-                </Option>
-              ))}
-            </Select>
-          </Col>
+          <>
+            <Col>
+              <Typography.Title level={2}>
+                Przedstaw się, aby zagrać
+              </Typography.Title>
+            </Col>
+            <Col>
+              <Select
+                showSearch
+                style={{ width: 200 }}
+                placeholder="Znajdź siebie!"
+                optionFilterProp="children"
+                onChange={handleUserChange}
+              >
+                {eligiblePeople.map((person) => (
+                  <Option key={person.Id} value={person.Id}>
+                    {`${person.Imie} ${person.Nazwisko}`}
+                  </Option>
+                ))}
+              </Select>
+            </Col>
+          </>
         )}
       </Row>
-      <Space direction="vertical" size="large" style={{ marginTop: "30px" }}>
-        <Link to="/play-game">
-          <Button type="primary" size="large" icon={<TrophyOutlined />}>
-            Zgadnij kto to{" "}
-            <Badge count={nameHighScore} style={{ marginLeft: "10px" }} />
-          </Button>
-        </Link>
-
-        <Link to="/play-age-game">
-          <Button type="primary" size="large" icon={<TrophyOutlined />}>
-            Czas na odpowiedź
-            {ageHighScore > 0 && (
-              <Badge count={ageHighScore} style={{ marginLeft: "10px" }} />
-            )}
-          </Button>
-        </Link>
-        <Link to="/play-true-false-game">
-          <Button type="primary" size="large" icon={<TrophyOutlined />}>
-            Prawda czy fałsz
-            <Badge
-              count={localStorage.getItem("tfHighScore") || 0}
-              style={{ marginLeft: "10px" }}
-            />
-          </Button>
-        </Link>
-
-        <Divider>
-          <Link to="/">
-            <ArrowLeftOutlined /> Powrót do strony głównej
+      {loggedUser && (
+        <Space direction="vertical" size="large" style={{ marginTop: "30px" }}>
+          <Link to="/play-game">
+            <Button
+              type="primary"
+              size="large"
+              icon={<QuestionCircleOutlined />}
+            >
+              Zgadnij kto to{" "}
+              <Badge count={nameHighScore} style={{ marginLeft: "10px" }} />
+            </Button>
           </Link>
-        </Divider>
-      </Space>
+          <Link to="/play-age-game">
+            <Button type="primary" size="large" icon={<ClockCircleOutlined />}>
+              Czas na odpowiedź
+              {ageHighScore > 0 && (
+                <Badge count={ageHighScore} style={{ marginLeft: "10px" }} />
+              )}
+            </Button>
+          </Link>
+          <Link to="/play-true-false-game">
+            <Button type="primary" size="large" icon={<TrophyOutlined />}>
+              Prawda czy fałsz
+              <Badge
+                count={localStorage.getItem("tfHighScore") || 0}
+                style={{ marginLeft: "10px" }}
+              />
+            </Button>
+          </Link>
+        </Space>
+      )}
+      <Divider>
+        <Link to="/">
+          <ArrowLeftOutlined /> Powrót do strony głównej
+        </Link>
+      </Divider>
     </div>
   );
 };
