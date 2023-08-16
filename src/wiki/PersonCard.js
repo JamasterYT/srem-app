@@ -1,3 +1,4 @@
+//src/wiki/PersonCard.js
 import React, { useState } from "react";
 import { Card } from "antd";
 import { Link } from "react-router-dom";
@@ -45,6 +46,7 @@ const PersonCard = ({ person }) => {
         }
         // data-aos="fade-up"
         data-aos="flip-down"
+        data-aos-once="false"
         data-aos-mirror
       >
         <Card.Meta title={fullName} description={description} />
