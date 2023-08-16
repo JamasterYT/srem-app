@@ -62,7 +62,7 @@ const AgeGame = () => {
       message.error(
         `Przegrałeś, poprawna odpowiedź: ${calculateAge(
           currentPerson.Data_urodzenia
-        )} lat`
+        )}`
       );
       window.location.href = "#/quiz";
     }
