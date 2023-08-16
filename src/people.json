@@ -1094,5 +1094,20 @@
       "Zwiazek": null,
       "Czy_nienarodzone": 1,
       "Zdjecie": "nienarodzone.jpg"
+    },
+    {
+      "Id": 74,
+      "Imie": null,
+      "Nazwisko": "Miękisak",
+      "Data_urodzenia": null,
+      "Plec": null,
+      "Ojciec": 60,
+      "Matka": 61,
+      "Malzonek": null,
+      "Czy_zyje": 1,
+      "Narzeczenstwo": null,
+      "Zwiazek": null,
+      "Czy_nienarodzone": 1,
+      "Zdjecie": "nienarodzone.jpg"
     }
   ]
